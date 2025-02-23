@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurajNXPlayz - Valorant Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #0f1923;
+            color: #ffffff;
+            font-family: 'Valorant', Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        header {
+            background-color: #ff4655;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1a1f25;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: #ff4655;
+        }
+        .progress-bar {
+            width: 80%;
+            background-color: #333;
+            margin: 20px auto;
+            height: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        .progress {
+            background-color: #ff4655;
+            height: 100%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            transition: width 1s ease-in-out;
+        }
+        .button {
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s;
+            border-radius: 5px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .glitch {
+            font-size: 32px;
+            font-weight: bold;
+            position: relative;
+            animation: glitch 1s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { width: 0%; }
+            to { width: 80%; }
+        }
+        @keyframes glitch {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="glitch">SurajNXPlayz</h1>
+        <p>On the Road to Immortal in Valorant</p>
+    </header>
+    
+    <nav>
+        <a href="#socials">Socials</a>
+        <a href="#rank-progress">Rank Progress</a>
+    </nav>
+    
+    <section id="socials">
+        <h2>Join the Community</h2>
+        <a href="https://www.youtube.com/@SurajNXPlayz" target="_blank">YouTube</a>
+        <a href="https://discord.gg/f5nfyDNX3J" target="_blank">Discord</a>
+    </section>
+    
+    <section id="rank-progress">
+        <h2>Rank Progress</h2>
+        <div class="progress-bar">
+            <div class="progress" style="width: 40%;">Diamond 2</div>
+        </div>
+        <button class="button" onclick="updateProgress()">Update Rank</button>
+    </section>
+    
+    <script>
+        function updateProgress() {
+            let progress = document.querySelector('.progress');
+            let currentWidth = parseInt(progress.style.width);
+            let newWidth = Math.min(currentWidth + 10, 100);
+            progress.style.width = newWidth + '%';
+            progress.textContent = newWidth === 100 ? 'Immortal' : 'Rank Progress';
+        }
+    </script>
+</body>
+</html>
